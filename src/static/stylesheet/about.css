@@ -1,0 +1,60 @@
+/*webkit scrollbar*/
+.about-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+.about-container::-webkit-scrollbar-track {
+    background: linear-gradient(45deg, darkslategray, gray);
+    cursor: pointer !important;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Handle */
+.about-container::-webkit-scrollbar-thumb {
+    background: #282828; 
+    border-radius: 0px;
+    transition: width 0.3s ease-in-out;
+    cursor: pointer !important;
+}
+
+/* Handle inactive */
+.about-container::-webkit-scrollbar-thumb:window-inactive {
+    background-color: #282828 !important;
+}
+
+
+.about-offcanvas {
+	z-index: 10000;
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	max-height: 100vh;
+	width: 400px;
+	max-width: 100vw;
+	background-color: #0a0a0acc;
+	overflow-y: auto;
+	transition-property: right;
+	transition-duration: 0.6s;
+}
+
+.close-btn {
+	text-align: right;
+	margin: 10px;
+}
+
+.close-btn .btn {
+	color: white;
+}
+
+#about-container {
+	background: linear-gradient(45deg, #000000, #2f4f4f, #808080);
+	margin: 3rem 1rem 1rem 1rem;
+	padding: 2rem 1.5rem;
+}
+
+#about-container div {
+	font-size: 1.5rem;
+	font-style: italic;
+	margin-bottom: 0.3rem;
+}
