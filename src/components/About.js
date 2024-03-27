@@ -26,7 +26,7 @@ export default function About({ show, onClose }) {
 					</h3>
 					<div id="about-container">
 						<div>Nakul</div>
-						<div>Raghva Sharma</div>
+						<div>Raghav Sharma</div>
 						<div>Sumit Saini</div>
 					</div>
 					<a 
