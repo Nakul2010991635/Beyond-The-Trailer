@@ -332,6 +332,7 @@ div.next-page-card div.nextpage-link svg {
         font-size: 2rem;
         transition: color 0.35s ease; 
     }
+    .nav-link
 
     .nav-link-icon:hover {
         color: #fbff00 !important;
