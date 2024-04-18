@@ -46,6 +46,13 @@ const Appp = () => {
             clockRuns()
         })()
     }, [])
+    useEffect(() => {
+        (async () => {
+          clockRuns();
+          await fetchPopularMovies();
+        })();
+      }, []);
+    
 
     const clockRuns = () => {
         clock = setInterval(() => tick(), 1000)
@@ -54,6 +61,13 @@ const Appp = () => {
     const tick = () => {
         setTime((new Date()).toString().slice(0, 24))
     }
+    const fetchPopularMovies = async () => {
+        const queryResult = await fetch(
+          `${baseUrl}/movie/popular${APIKEY}`
+        );
+        const data = await queryResult.json();
+        setDataList(data.results);
+      };
 
     const fetchQuery = async (searchVal, filter, page) => {
         setShowMain(true)
@@ -124,10 +138,7 @@ const Appp = () => {
                     setTimeout(() => {
                         setOpen(false)
                     }, 700)
-                    // setTimeout(() => {
-                    //     var qConElmTop = document.querySelector('.p-que-container').offsetTop
-                    //     window.scroll({ top: qConElmTop + 20, left: 0, behavior: 'smooth' })
-                    // }, 650)
+                    
                 }
             }
 
@@ -204,7 +215,6 @@ const Appp = () => {
         setCC({ credit_info: creditDeets, person_info: personDeets })
         
 
-        // return 'done'
     }
 
 
@@ -267,7 +277,6 @@ const Appp = () => {
                 main.style.pointerEvents = 'none'
             }
         } else {
-            // body.style.backgroundColor = root.style.backgroundColor = '#0a0c18'
             if (head) {
                 head.style.opacity = '1'
                 head.style.pointerEvents = 'auto'
@@ -280,13 +289,6 @@ const Appp = () => {
         setAboutOpen(!aboutOpen)
     }
 
-    // const appendToHistory = (id, type) => {
-    //     history.push({ 
-    //         searchtype: 'queryid',
-    //         Qid: id,
-    //         mediaType: type,
-    //     })
-    // }
 
 
 
@@ -359,20 +361,3 @@ const GetBackDrop = ({ openBackdrop }) => {
 export default Appp;
 
 
-// var imgs = document.images,
-//     len = imgs.length,
-//     counter = 0;
-
-// [].forEach.call( imgs, function( img ) {
-//     if(img.complete)
-//       incrementCounter();
-//     else
-//       img.addEventListener( 'load', incrementCounter, false );
-// } );
-
-// function incrementCounter() {
-//     counter++;
-//     if ( counter === len ) {
-//         console.log( 'All images loaded!' );
-//     }
-// }
