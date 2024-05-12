@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -16,7 +16,7 @@ const APIKEY = '?api_key=6cab8f1bc6c79b46b07caa568a62bd8d';
 
 
 const Appp = () => {
-    const [history, setHistory] = useState([])
+    const [history] = useState([])
     const [pages, setPages] = useState(1)
     const [dataList, setDataList] = useState([])
     const [queryObject, setResult] = useState({
@@ -39,7 +39,7 @@ const Appp = () => {
     const [itemClips, setClips] = useState(null)
     const [time, setTime] = useState((new Date()).toString().slice(0, 24)) 
 
-    var clock;
+  
 
     useEffect(() => {
         (async () => {
@@ -55,7 +55,7 @@ const Appp = () => {
     
 
     const clockRuns = () => {
-        clock = setInterval(() => tick(), 1000)
+        var clock = setInterval(() => tick(), 1000)
     }
 
     const tick = () => {
@@ -314,6 +314,7 @@ const Appp = () => {
                 pageT={pages} 
                 onChange={fetchMoreQueries} 
                 onCardClick={fetchSingleQuery} 
+                
             />}
             {!showMain && <ShowSingleQuery 
                 details={singleQueryObject._data} 

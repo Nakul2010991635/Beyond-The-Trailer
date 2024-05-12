@@ -18,8 +18,7 @@ SwiperCore.use([Navigation]);
 
 
 const baseImgUrl = 'https://image.tmdb.org/t/p/'
-const baseWebUrl = 'https://api.themoviedb.org/3';
-const API_KEY = '?api_key=6cab8f1bc6c79b46b07caa568a62bd8d';
+
 
 
 

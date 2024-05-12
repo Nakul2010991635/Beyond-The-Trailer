@@ -90,7 +90,7 @@ const Cast = ({ details, totalCast }) => {
 							maxWidth: '120px',
 							margin: '12px',
 						}}>
-							<img height='180px' width='120px'
+							<img height='180px' width='120px' alt='movie'
 								src={_baseImgUrl + 'w400' + movie.poster_path} />
 							<div style={{ 
 								fontFamily: 'C Font8', 

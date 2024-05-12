@@ -1,38 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import '../static/stylesheet/profile.css';
-import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
+import { useLocation } from 'react-router-dom';
 
 export default function Profile({ show, onClose }) {
   const [userInfo, setUserInfo] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const decodedToken = jwtDecode(token);
-      const userId = decodedToken._id;
-      fetchUserInfo(userId);
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      setUserInfo(JSON.parse(userData));
     } else {
-      console.log('User is not logged in');
+      console.log('User data not found');
     }
   }, []);
-
-  const fetchUserInfo = async () => {
-	try {
-	  const token = localStorage.getItem('token');
-	  const decodedToken = jwtDecode(token);
-	  const userId = decodedToken._id;
-  
-	  const response = await axios.get(`/api/users/${userId}`, {
-		headers: {
-		  Authorization: `Bearer ${token}`,
-		},
-	  });
-	  setUserInfo(response.data);
-	} catch (error) {
-	  console.error('Error fetching user information:', error);
-	}
-  };
 
   return (
     <>
@@ -60,7 +41,7 @@ export default function Profile({ show, onClose }) {
           </h3>
           {userInfo ? (
             <div id="profile-container">
-              <div>Name: {userInfo.firstName} {userInfo.lastName}</div>
+              <div>Name: {userInfo.name}</div>
               <div>Email: {userInfo.email}</div>
             </div>
           ) : (

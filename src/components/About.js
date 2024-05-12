@@ -32,6 +32,7 @@ export default function About({ show, onClose }) {
 					<a 
 						href="https://github.com/Nakul2010991635/Beyond-The-Trailer.git" 
 						target="_blank"
+						rel="noreferrer"
 						style={{
 							width: '90%', 
 							margin: '3rem auto', 
